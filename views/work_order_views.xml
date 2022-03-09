@@ -42,6 +42,8 @@
                         <button name="start_work" states="pending" string="Start Work" type="object"/>
                         <button name="end_work" states="in_progress" string="End Work" type="object"/>
                         <button name="reset" states="in_progress" string="Reset" type="object"/>
+                        <button name="%(action_cancel)d" states="pending,in_progress,done" string="Cancel"
+                                type="action"/>
                         <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,done,cancelled"/>
                     </header>
                     <sheet>
