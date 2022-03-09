@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <menuitem name="Booking" id="booking_main"
-                  parent="sales_team.menu_base_partner" sequence="0"/>
+                  parent="sales_team.menu_base_partner" sequence="5"/>
 
         <menuitem name="Booking Order" id="booking_order_main"
                   parent="booking_main" sequence="1"/>
@@ -11,6 +11,6 @@
                   parent="booking_main" sequence="2"/>
 
         <menuitem name="Service Team" id="service_team_main"
-                  parent="booking_main" sequence="3"/>
+                  parent="booking_main" sequence="3" action="service_team_action"/>
     </data>
 </odoo>
