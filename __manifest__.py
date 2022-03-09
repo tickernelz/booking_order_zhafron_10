@@ -30,6 +30,7 @@
         'views/work_order_views.xml',
         'views/booking_order_views.xml',
         'views/service_team_views.xml',
-        'views/menu.xml'
+        'views/menu.xml',
+        'data/data.xml'
     ],
 }
