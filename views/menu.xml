@@ -5,7 +5,7 @@
                   parent="sales_team.menu_base_partner" sequence="5"/>
 
         <menuitem name="Booking Order" id="booking_order_main"
-                  parent="booking_main" sequence="1"/>
+                  parent="booking_main" sequence="1" action="booking_order_action"/>
 
         <menuitem name="Work Order" id="work_order_main"
                   parent="booking_main" sequence="2"/>
