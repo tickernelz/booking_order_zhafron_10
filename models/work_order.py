@@ -19,3 +19,30 @@ class WorkOrder(models.Model):
         [('pending', 'Pending'), ('in_progress', 'In Progress'), ('done', 'Done'), ('cancelled', 'Cancelled')],
         string='State', default='pending', track_visibility='onchange')
     note = fields.Text(string='Note')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('wo_number', _('New')) == _('New'):
+            if 'company_id' in vals:
+                vals['wo_number'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+                    'work.order') or _('New')
+            else:
+                vals['wo_number'] = self.env['ir.sequence'].next_by_code('work.order') or _('New')
+        result = super(work_order, self).create(vals)
+        return result
+
+    @api.multi
+    def start_work(self):
+        return self.write({'state': 'in_progress', 'date_start': str(datetime.now())})
+
+    @api.multi
+    def end_work(self):
+        return self.write({'state': 'done', 'date_end': str(datetime.now())})
+
+    @api.multi
+    def reset(self):
+        return self.write({'state': 'pending', 'date_start': ''})
+
+    @api.multi
+    def cancel(self):
+        return self.write({'state': 'cancelled'})
