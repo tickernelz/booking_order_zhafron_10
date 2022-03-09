@@ -28,7 +28,7 @@ class WorkOrder(models.Model):
                     'work.order') or _('New')
             else:
                 vals['wo_number'] = self.env['ir.sequence'].next_by_code('work.order') or _('New')
-        result = super(work_order, self).create(vals)
+        result = super(WorkOrder, self).create(vals)
         return result
 
     @api.multi
